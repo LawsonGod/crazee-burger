@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function OrderPage() {
     //states
@@ -10,7 +10,8 @@ export default function OrderPage() {
     //affichage(render)
   return (
     <div>
-      Orderpage
+      <h1>Orderpage</h1>
+      <Link to = "/"><button>Déconnexion</button></Link>
     </div>
   )
 }
