@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function LoginForm() {
      //states
@@ -27,8 +28,9 @@ export default function LoginForm() {
                 <br />
                 <hr />
                 <h2>Connectez-vous</h2>
+                <BsPersonCircle className='input-icon'/>
                 <input 
-                    value = {inputValue} 
+                    value={inputValue} 
                     onChange={handleChange} 
                     type="text" 
                     placeholder= "Entrez votre prénom" 
@@ -105,6 +107,14 @@ const LoginFormStyle  = styled.form`
         padding-top: 19px;
         padding-bottom: 19px;
         color: #D3D3D3;
+    }
+    svg.input-icon{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 160px;
+        margin-left: -170px;
+        color: #939191;
     }
     button{
         width: 400px;
