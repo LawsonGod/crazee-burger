@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import background from "../../../assets/F03 burger-background.jpg"    
+import Logo from "../../reusable-ui/logo";
 
 
 export default function LoginPages() {
@@ -9,6 +10,7 @@ export default function LoginPages() {
     //affichage(render)
   return (
     <LoginPagesStyle>
+      <Logo />
       <LoginForm />
     </LoginPagesStyle>
   )
