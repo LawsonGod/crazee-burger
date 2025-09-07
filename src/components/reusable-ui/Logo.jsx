@@ -2,25 +2,37 @@ import styled from "styled-components";
 
 export default function Logo() {
   return (
-    <LogoStyle>logo</LogoStyle>
+    <LogoStyle>
+        <h1>CRAZEE</h1> 
+            <img src="/src/assets/images/F03 logo-orange.png" alt="Burger-logo" />
+        <h1>BURGER</h1>
+    </LogoStyle>
   )
 }
 
 const LogoStyle = styled.div`
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 200px;
-    background-color: white;
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: #F56A2C;
-    text-transform: uppercase;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: 'Amatic SC', cursive;
-  
+    gap: 8px;
+    --logo-scale: 2.5;
+
+    h1{
+        display: inline;
+        text-align: center;
+        color: #ffa01b;
+        font-size: calc(36px * var(--logo-scale));
+        line-height: 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-family: 'Amatic SC', cursive;
+    }
+    img{
+        object-fit: contain;
+        object-position: center;
+        width: calc(80px * var(--logo-scale));
+        height: calc(80px * var(--logo-scale));
+        margin: 0 5px;
+    }
+
 `;

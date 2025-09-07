@@ -45,15 +45,15 @@ export default function LoginForm() {
 
 const LoginFormStyle  = styled.form`
     width: 464px;
-    height: 438.31px;
-    top: 313.95px;
+    /* height: 438.31px; */
+    /* top: 313.95px; */
     left: 524px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    margin-top: 100px;
+    /* margin-top: 10px; */
     /* border: 1px solid white; */
 
     h1{
