@@ -20,12 +20,23 @@ const LoginPagesStyle = styled.div`
 min-height: 100vh;
 min-width: 100vw;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
-background-image: url(${background});
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-  
+
+ ::before{
+    content: "";
+    background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.50), 
+      rgba(0, 0, 0, 0.60)
+    ),
+    url(${background});
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;  
+} 
 `;
 
