@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BsPersonCircle } from "react-icons/bs";
 import styled from 'styled-components';
+import { IoChevronForward } from 'react-icons/io5';
 
 
 export default function LoginForm() {
@@ -39,7 +40,11 @@ export default function LoginForm() {
                         required
                     />
                 </div>
-                <button>Accéder à mon espace</button>
+
+                <button className='button-with-icon-container'>
+                    <span>Accéder à mon espace</span>
+                    <IoChevronForward className='icon-button'/>
+                </button>
             </LoginFormStyle>
         
         </div>
@@ -95,9 +100,8 @@ const LoginFormStyle  = styled.form`
         }
     }
     
-    button{
-        width: 400px;
-        height: 55px;
+    .button-with-icon-container{
+        width: 100%;
         border-radius: 5px;
         background-color: #ff9F1B;
         font-size: 15px;
@@ -105,5 +109,38 @@ const LoginFormStyle  = styled.form`
         font-weight: 700;
         border: 1px solid #ff9F1B;
         color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        white-space: nowrap;
+        text-decoration: none;
+        line-height: 1;
+        padding: 18px 24px;
+
+        &:hover:not(:disabled){
+            background-color: white;
+            color: #ff9F1B;
+            border: 1px solid #ff9F1B;
+            transition: all 200ms ease-in-out;
+        }
+        &:active{
+            background-color: #ff9F1B;
+            color: white;
+            border: 1px solid #ff9F1B;
+        }
+        &:disabled{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .icon-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+
     }
 `;
