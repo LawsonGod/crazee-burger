@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import { BsPersonCircle } from "react-icons/bs";
+import styled from 'styled-components';
+
 
 export default function LoginForm() {
      //states
@@ -28,14 +29,16 @@ export default function LoginForm() {
                 <br />
                 <hr />
                 <h2>Connectez-vous</h2>
-                <BsPersonCircle className='input-icon'/>
-                <input 
-                    value={inputValue} 
-                    onChange={handleChange} 
-                    type="text" 
-                    placeholder= "Entrez votre prénom" 
-                    required 
-                />
+                <div className='input-with-icon-container'>
+                    <BsPersonCircle className='input-icon'/>
+                    <input
+                        value={inputValue}
+                        onChange={handleChange}
+                        type="text"
+                        placeholder= "Entrez votre prénom"
+                        required
+                    />
+                </div>
                 <button>Accéder à mon espace</button>
             </LoginFormStyle>
         
@@ -44,78 +47,54 @@ export default function LoginForm() {
 }
 
 const LoginFormStyle  = styled.form`
-    width: 464px;
-    /* height: 438.31px; */
-    /* top: 313.95px; */
-    left: 524px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 500px;
+    min-height: 400px;
+    text-align: center;
+    margin: 0px auto;
+    padding: 2.5rem 2rem;
     border-radius: 5px;
-    /* margin-top: 10px; */
-    /* border: 1px solid white; */
+    font-family: 'Amatic SC', cursive;
 
     h1{
-        width: 310px;
-        height: 61px;
-        top: 72.16px;
-        left: 76.14px;
         font-size: 48px;
-        font-family: 'Amatic SC', sans-serif;
-        font-weight: 700;
         color: #ffffff;
-        font-style: normal;
-        line-height: 61px;
-        margin-bottom: 5px;
     }
     hr{
-        width: 400px;
-        height: 3px;
-        top: 165.31px;
-        left: 32px;
-        background-color: #F56A2C;
         border: 1px solid #F56A2C;
-
+        margin-bottom: 40px;
     }
     h2{
-        width: 171px;
-        height: 46px;
-        top: 208.31px;
-        left: 146.55px;
+        margin:20px 10px 10px;
         font-size: 36px;
-        font-family: 'Amatic SC', sans-serif;
-        font-weight: 700;
         color: #ffffff;
-        font-style: normal; 
-        line-height: 46px;
-        margin-bottom: 15px;
     }
-    input{
-        width: 400px;
-        height: 55px;
+    .input-with-icon-container{
+        background-color:#fff;
         border-radius: 5px;
-        border: none;
-        margin-bottom: 20px;
-        font-weight: 400;
-        font-size: 15px;
-        font-family: Arial, sans-serif;
-        font-weight: 400;
+        display: flex;
+        align-items: center;
+        padding: 18px 24px;
+        margin: 18px 0;
+
+        input{
+            border: none;
+            font-size: 15px;
+            color: #17161a;
+            width: 100%;
+        }
+
+        input::placeholder{
+        background: white;
+        color: lightgrey;
+        }
+
+        svg.input-icon{
+            font-size: 15px;
+            margin-right: 8px;
+            color: #93a2b1;
+        }
     }
-    input::placeholder{
-        padding-left: 51.8px;
-        padding-top: 19px;
-        padding-bottom: 19px;
-        color: #D3D3D3;
-    }
-    svg.input-icon{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 160px;
-        margin-left: -170px;
-        color: #939191;
-    }
+    
     button{
         width: 400px;
         height: 55px;
@@ -127,5 +106,4 @@ const LoginFormStyle  = styled.form`
         border: 1px solid #ff9F1B;
         color: white;
     }
-    
 `;
