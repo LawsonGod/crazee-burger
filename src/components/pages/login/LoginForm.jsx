@@ -27,7 +27,6 @@ export default function LoginForm() {
         <div>
             <LoginFormStyle action="submit" onSubmit={handlesubmit}>
                 <h1>Bienvenue chez nous !</h1>
-                <br />
                 <hr />
                 <h2>Connectez-vous</h2>
                 <div className='input-with-icon-container'>
