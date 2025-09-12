@@ -1,7 +1,7 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import background from "../../../assets/images/F03 burger-background.jpg"    
-import Logo from "../../reusable-ui/logo";
+import Logo from "../../reusable-ui/Logo";
 
 
 export default function LoginPages() {

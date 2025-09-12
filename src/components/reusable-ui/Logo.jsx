@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import logoUrl from "../../assets/images/F03 logo-orange.png";
 
 export default function Logo() {
   return (
     <LogoStyle>
         <h1>CRAZEE</h1> 
-            <img src="/src/assets/images/F03 logo-orange.png" alt="Burger-logo" />
+            <img src={logoUrl} alt="Burger-logo" />
         <h1>BURGER</h1>
     </LogoStyle>
   )
