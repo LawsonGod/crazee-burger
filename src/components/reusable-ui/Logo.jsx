@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logoUrl from "../../assets/images/F03 logo-orange.png";
+import { theme } from "../../theme";
 
 export default function Logo() {
   return (
@@ -20,10 +21,10 @@ const LogoStyle = styled.div`
     h1{
         display: inline;
         text-align: center;
-        color: #ffa01b;
-        font-size: calc(36px * var(--logo-scale));
+        color: ${theme.colors.primary};
+        font-size: calc(${theme.fonts.size.P4}* var(--logo-scale));
         line-height: 1em;
-        font-weight: 700;
+        font-weight: ${theme.fonts.weights.bold};
         text-transform: uppercase;
         letter-spacing: 1.5px;
         font-family: 'Amatic SC', cursive;
@@ -33,7 +34,7 @@ const LogoStyle = styled.div`
         object-position: center;
         width: calc(80px * var(--logo-scale));
         height: calc(80px * var(--logo-scale));
-        margin: 0 5px;
+        margin: 0 ${theme.gridUnit / 2}px;
     }
 
 `;
