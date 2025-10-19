@@ -35,8 +35,5 @@ const OrderPagestyled = styled.div`
     height: 95vh;
     display: flex;
     flex-direction: column;
-
   }
-  
-  
 `;
