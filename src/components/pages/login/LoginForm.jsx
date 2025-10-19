@@ -1,5 +1,11 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components';
+import { IoChevronForward } from 'react-icons/io5';
+import { BsPersonCircle } from "react-icons/bs";
+import TextInput from '../../reusable-ui/TextInput';
+import Button from '../../reusable-ui/Button';
+import { theme } from '../../../theme';
 
 export default function LoginForm() {
      //states
@@ -11,7 +17,6 @@ export default function LoginForm() {
         event.preventDefault()
         setInputValue("")
         navigate(`order/${inputValue}`)
-        
     }
 
      const handleChange = (event) => {
@@ -21,20 +26,55 @@ export default function LoginForm() {
     //affichage(render)
     return (
         <div>
-            <form action="submit" onSubmit={handlesubmit}>
+            <LoginFormStyle action="submit" onSubmit={handlesubmit}>
                 <h1>Bienvenue chez nous !</h1>
-                <br />
+                <hr />
                 <h2>Connectez-vous</h2>
-                <input 
-                    value = {inputValue} 
+                <TextInput 
+                    value={inputValue} 
                     onChange={handleChange} 
                     type="text" 
-                    placeholder= "Entrez votre prenom..." 
-                    required 
+                    placeholder="Entrez votre prénom" 
+                    required
+                    iconInput = {<BsPersonCircle className='input-icon'/>}
                 />
-                <button>Accédez à votre espace</button>
-            </form>
-        
+
+                <Button
+                    iconButton = {<IoChevronForward className='icon-button'/>}
+                    label = {"Accéder à mon espace"}
+                />
+            </LoginFormStyle>
         </div>
     )
 }
+
+const LoginFormStyle  = styled.form`
+    max-width: 500px;
+    min-height: 400px;
+    text-align: center;
+    margin: 0px auto;
+    padding: 40px ${theme.spacing.lg};
+    border-radius: ${theme.borderRadius.round};
+    font-family: 'Amatic SC', cursive;
+
+    h1{
+        font-size: ${theme.fonts.size.P5};
+        color: ${theme.colors.white};
+    }
+    hr{
+        border: 1px solid ${theme.colors.loginline};
+        margin-bottom: ${theme.gridUnit * 5}px;
+    }
+    h2{
+        margin:20px 10px 10px;
+        font-size: ${theme.fonts.size.P4};
+        color: ${theme.colors.white};
+    }
+    .icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: ${theme.fonts.size.P0};
+        margin-left: 10px;
+    }
+`;
