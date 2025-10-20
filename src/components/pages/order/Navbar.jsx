@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import NavbarRightSide from "./NavbarRightSide";
+import NavbarLeftSide from "./NavbarLeftSide";
 
 export default function Navbar({username}) {
     //states
@@ -11,9 +12,7 @@ export default function Navbar({username}) {
     //affichage(render)
   return (
     <NavbarStyled>
-        <div className="left-side">
-            left side
-        </div>
+        <NavbarLeftSide />
         <NavbarRightSide username={username}/>
     </NavbarStyled>
   )
@@ -26,7 +25,4 @@ const NavbarStyled = styled.nav`
     justify-content: space-between;
     /* align-items: center; */
 
-    .left-side{
-        background: purple;
-    }
 `;
