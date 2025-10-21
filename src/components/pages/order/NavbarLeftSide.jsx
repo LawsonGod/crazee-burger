@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "../../reusable-ui/Logo";
 
 export default function NavbarLeftSide() {
     //states
@@ -6,11 +7,11 @@ export default function NavbarLeftSide() {
 
     //comportements
 
-    
+
     //affichage(render)
   return (
     <NavbarLeftSideStyled>
-        left side
+        <Logo />
     </NavbarLeftSideStyled>
   )
 }
