@@ -10,7 +10,7 @@ export default function LoginPages() {
     //affichage(render)
   return (
     <LoginPagesStyle>
-      <Logo />
+      <Logo className={"logo-login-page"}/>
       <LoginForm />
     </LoginPagesStyle>
   )
@@ -38,5 +38,8 @@ align-items: center;
     background-position: center;
     z-index: -1;  
 } 
+.logo-login-page{
+      --logo-scale: 2.5;
+}
 `;
 
