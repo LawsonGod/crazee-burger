@@ -22,7 +22,7 @@ export default function OrderPage() {
 }
 
 const OrderPagestyled = styled.div`
-  background: orange;
+  background: ${theme.colors.primary};
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -31,7 +31,7 @@ const OrderPagestyled = styled.div`
     
     
   .container{
-    background: red;
+    background: ${theme.colors.red};
     width: 1400px;
     height: 95vh;
     display: flex;
