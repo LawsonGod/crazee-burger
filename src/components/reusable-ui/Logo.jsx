@@ -2,9 +2,9 @@ import styled from "styled-components";
 import logoUrl from "../../assets/images/F03 logo-orange.png";
 import { theme } from "../../theme";
 
-export default function Logo() {
+export default function Logo({className, onClick}) {
   return (
-    <LogoStyle>
+    <LogoStyle className={className} onClick={onClick}>
         <h1>CRAZEE</h1> 
             <img src={logoUrl} alt="Burger-logo" />
         <h1>BURGER</h1>
@@ -15,14 +15,14 @@ export default function Logo() {
 const LogoStyle = styled.div`
     display: flex;
     align-items: center;
-    gap: 8px;
-    --logo-scale: 2.5;
+    /* gap: 8px; */
+    /* --logo-scale: 1; */
 
     h1{
         display: inline;
         text-align: center;
         color: ${theme.colors.primary};
-        font-size: calc(${theme.fonts.size.P4}* var(--logo-scale));
+        font-size: calc(${theme.fonts.size.P4} * var(--logo-scale, 1));
         line-height: 1em;
         font-weight: ${theme.fonts.weights.bold};
         text-transform: uppercase;
@@ -32,8 +32,8 @@ const LogoStyle = styled.div`
     img{
         object-fit: contain;
         object-position: center;
-        width: calc(80px * var(--logo-scale));
-        height: calc(80px * var(--logo-scale));
+        width: calc(80px * var(--logo-scale, 1));
+        height: calc(80px * var(--logo-scale, 1));;
         margin: 0 ${theme.gridUnit / 2}px;
     }
 
