@@ -17,5 +17,4 @@ export default function NavbarLeftSide() {
 }
 
 const NavbarLeftSideStyled = styled.div`
-    background: purple;
 `;
