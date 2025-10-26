@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logoUrl from "../../assets/images/F03 logo-orange.png";
+import logoUrl from "../../../public/images/F03 logo-orange.png";
 import { theme } from "../../theme";
 
 export default function Logo({className, onClick}) {
