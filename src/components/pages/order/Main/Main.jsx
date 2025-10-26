@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import Menu from "./Menu";
 
 export default function Main() {
   return (
@@ -7,9 +8,7 @@ export default function Main() {
       <div className="basket-items">
         basket items
       </div>
-      <div className="menu">            
-        menu
-      </div>
+      <Menu />
     </MainStyled>
   )
 }
@@ -19,19 +18,12 @@ const MainStyled = styled.div`
     background: ${theme.colors.background_white};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
-    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset ;
+    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
     display: grid;
     grid-template-columns: 1fr 2fr;
-
-
-
-
 
     .basket-items{
       background: pink;
     }
-    .menu{
-      background: purple;
-    }
-
+    
     `;
