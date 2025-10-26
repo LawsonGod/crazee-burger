@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Logo from "../../reusable-ui/Logo";
-import { refreshPage } from "../../utils/Window";
+import Logo from "../../../reusable-ui/Logo";
+import { refreshPage } from "../../../utils/Window";
 
 export default function NavbarLeftSide() {
     //states

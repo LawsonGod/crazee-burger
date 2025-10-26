@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../theme";
 
 export default function Main() {
   return (
-     <MainStyled>
-          <div className="basket-items">
-          basket items
-        </div>
-        <div className="menu">            
-          menu
-        </div>
+    <MainStyled>
+      <div className="basket-items">
+        basket items
+      </div>
+      <div className="menu">            
+        menu
+      </div>
     </MainStyled>
   )
 }
