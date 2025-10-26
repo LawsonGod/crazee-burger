@@ -4,7 +4,12 @@ import { theme } from "../../../theme";
 export default function Main() {
   return (
      <MainStyled>
-        The main section
+          <div className="basket-items">
+          basket items
+        </div>
+        <div className="menu">            
+          menu
+        </div>
     </MainStyled>
   )
 }
@@ -15,4 +20,18 @@ const MainStyled = styled.div`
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset ;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+
+
+
+
+    .basket-items{
+      background: pink;
+    }
+    .menu{
+      background: purple;
+    }
+
     `;
