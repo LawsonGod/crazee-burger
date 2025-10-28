@@ -19,6 +19,7 @@ export default function Menu() {
         {menu.map((produit) => {
           return (
             <Product imageSource = {produit.imageSource} title = {produit.title} price = {produit.price}/>
+            //<Product {...produit} />  //autre facon de faire
           )
         })}
     </MenuStyled>
