@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import Button from "../../../reusable-ui/Button";
+import { theme } from "../../theme";
+import Button from "./Button";
 
-export default function Product({imageSource, title, leftDescription}) {
+export default function Card({imageSource, title, leftDescription}) {
   return (
-    <ProductStyled>
+    <CardStyled>
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -18,10 +18,10 @@ export default function Product({imageSource, title, leftDescription}) {
           </div>
         </div>
       </div>
-    </ProductStyled>
+    </CardStyled>
   )
 }
-const ProductStyled = styled.div`
+const CardStyled = styled.div`
   background: ${theme.colors.white};
   width: 200px;
   height: 300px;
