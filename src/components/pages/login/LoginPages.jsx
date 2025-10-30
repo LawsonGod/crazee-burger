@@ -1,6 +1,5 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
-import background from "../../../../public/images/F03 burger-background.jpg"    
 import Logo from "../../reusable-ui/Logo";
 
 
@@ -31,7 +30,7 @@ align-items: center;
       rgba(0, 0, 0, 0.50), 
       rgba(0, 0, 0, 0.60)
     ),
-    url(${background});
+    url('/images/F03 burger-background.jpg');
     position: absolute;
     inset: 0;
     background-size: cover;
