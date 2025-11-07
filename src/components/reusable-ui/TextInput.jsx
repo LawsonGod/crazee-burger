@@ -32,7 +32,7 @@ const InputStyled = styled.div`
 
         input{
             border: none;
-            font-size: ${theme.fonts.size.P0};
+            font-size: ${theme.fonts.size.SM};
             color: ${theme.colors.dark};
             width: 100%;
         }
@@ -43,7 +43,7 @@ const InputStyled = styled.div`
         }
 
         svg.input-icon{
-            font-size: ${theme.fonts.size.P0};
+            font-size: ${theme.fonts.size.SM};
             margin-right: 8px;
             color: ${theme.colors.greySemiDark};
         }
