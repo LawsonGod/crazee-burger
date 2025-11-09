@@ -2,8 +2,15 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
 import Admin from "../../admin/Admin";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function Main() {
+  //States
+  const {isModeAdmin, SetIsModeAdmin} = useContext(OrderContext)
+  //Comportements
+
+  //Affichage (render)
   return (
     <MainStyled>
       {/* <div className="basket-items">
@@ -11,7 +18,8 @@ export default function Main() {
       </div> */}
       <div className="menu-and-admin">
         <Menu />
-        <Admin />
+        {isModeAdmin ? <Admin /> : null}
+        {/* affichage conditionnel en mode admin plus simple "IsModeAdmin && <Admin />" */}
       </div>
       
     </MainStyled>
