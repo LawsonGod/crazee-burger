@@ -1,14 +1,17 @@
 import styled from 'styled-components';
+import Tab from '../../reusable-ui/Tab';
+import { FiChevronDown } from 'react-icons/fi';
 
 export default function AdminTabs() {
   return (
     <AdminTabsStyled>
-      admin tabs
+        <Tab Icon = {<FiChevronDown />}  />
     </AdminTabsStyled>
   )
 }
 
 const AdminTabsStyled = styled.div`
-    border: 3px solid red;
+    display: flex;
+    padding: 0 20px;
   
 `;
