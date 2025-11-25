@@ -33,24 +33,12 @@ export default function AdminTabs() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
-      {/* <Tab
-        label="Ajouter un produit"
-        Icon={<AiOutlinePlus />}
-        onClick={() => selectTab("add")}
-        className={isAddSelected ? "is-active" : ""}
-      />
-      <Tab
-        label="Modifier un produit"
-        Icon={<MdModeEditOutline />}
-        onClick={() => selectTab("edit")}
-        className={isEditSelected ? "is-active" : ""}
-      /> */}
       {tabs.map((tab) => (
         <Tab
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
-          className={tab.className}
+          className={currentTabSelected === tab.index ? "is-active" : ""}
         />
       ))}
     </AdminTabsStyled>
