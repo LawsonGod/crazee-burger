@@ -6,7 +6,7 @@ import { getTabsConfig, getTabSelected } from "./getTabConfig";
 
 export default function AdminPanel() {
   // States
-  const { isAddSelected, isEditSelected, currentTabSelected } = useContext(OrderContext);
+  const { currentTabSelected } = useContext(OrderContext);
 
   // Comportement
   const tabs = getTabsConfig(currentTabSelected);
@@ -15,10 +15,7 @@ export default function AdminPanel() {
   // Affichage
   return (
     <AdminPanelStyled>
-      {/* {isAddSelected && "Ajouter un produit"}
-      {isEditSelected && "Modifier un produit"} */}
       {tabSelected?.label}
-      {/* {isAddSelected ? "Ajouter un produit" : "Modifier un produit"} */}
     </AdminPanelStyled>
   );
 }
@@ -27,4 +24,6 @@ const AdminPanelStyled = styled.div`
   box-shadow: ${theme.shadows.subtle};
   background: ${theme.colors.white};
   height: 250px;
+  border-bottom-left-radius:${theme.borderRadius.extraRound};
+  border-bottom-right-radius:${theme.borderRadius.extraRound};
 `;

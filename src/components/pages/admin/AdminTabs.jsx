@@ -15,8 +15,6 @@ export default function AdminTabs() {
     setCurrentTabSelected
   } = useContext(OrderContext);
   // Comportement
-  // const handleClick = () => {setIsCollapsed(!isCollapsed);};
-
   const selectTab = (tabSelected) => {
     setIsCollapsed(false); //Ouvre le panel à chaque sélection de tab
     setCurrentTabSelected(tabSelected); // Met à jour l'onglet sélectionné
