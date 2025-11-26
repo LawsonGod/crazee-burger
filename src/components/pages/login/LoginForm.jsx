@@ -74,7 +74,7 @@ const LoginFormStyle  = styled.form`
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: ${theme.fonts.size.P0};
+        font-size: ${theme.fonts.size.SM};
         margin-left: 10px;
     }
 `;

@@ -1,42 +1,59 @@
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import Navbar from './Navbar/Navbar';
-import Main from './Main/Main';
-import { theme } from '../../../theme';
+import styled from "styled-components";
+import Navbar from "./Navbar/Navbar";
+import Main from "./Main/Main";
+import { theme } from "../../../theme";
+import { useState } from "react";
+import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
-    //states
-    const {username} = useParams()
+  //states
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isEditSelected, setIsEditSelected] = useState(false);
+  const [isAddSelected, setIsAddSelected] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
-    //comportements
+  //comportements
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isEditSelected,
+    setIsEditSelected,
+    isAddSelected,
+    setIsAddSelected,
+    currentTabSelected,
+    setCurrentTabSelected
+  };
 
-    //affichage(render)
+  //affichage(render)
   return (
-    <OrderPagestyled>
-      <div className='container'>
-        <Navbar username = {username}/>
-        <Main />
-      </div>
-    </OrderPagestyled>
-  )
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPagestyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPagestyled>
+    </OrderContext.Provider>
+  );
 }
 
 const OrderPagestyled = styled.div`
   background: ${theme.colors.primary};
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    
-  .container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
     background: ${theme.colors.red};
     width: 1400px;
     height: 95vh;
     display: flex;
     flex-direction: column;
-    border-radius: ${theme.borderRadius.extraRound}
-    
+    border-radius: ${theme.borderRadius.extraRound};
   }
 `;
