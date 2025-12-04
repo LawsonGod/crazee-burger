@@ -33,6 +33,7 @@ export default function AdminTabs() {
       />
       {tabs.map((tab) => (
         <Tab
+          key={tab.index}
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
@@ -51,6 +52,7 @@ export const AdminTabsStyled = styled.div`
     background: ${theme.colors.background_dark};
     border-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
+    border-bottom: 2px;
   }
 
   button {
