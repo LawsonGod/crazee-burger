@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { theme } from "../../../theme";
-import OrderContext from "../../../context/OrderContext";
+import { theme } from "../../../../theme";
+import OrderContext from "../../../../context/OrderContext";
 import { useContext } from "react";
-import { getTabsConfig, getTabSelected } from "./getTabConfig";
+import { getTabsConfig, getTabSelected } from "../getTabConfig";
 
 export default function AdminPanel() {
   // States
@@ -15,7 +15,7 @@ export default function AdminPanel() {
   // Affichage
   return (
     <AdminPanelStyled>
-      {tabSelected?.label}
+      {tabSelected?.Content}
     </AdminPanelStyled>
   );
 }
