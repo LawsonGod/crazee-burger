@@ -1,34 +1,37 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme/index";
 import { formatPrice } from "../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
+import OrderContext from "../../../../context/OrderContext";
 
 
 export default function Menu() {
    //States
-  const [menu, _setMenu] = useState(fakeMenu.MEDIUM);
+  // const [menu, _setMenu] = useState(fakeMenu.MEDIUM);
+  const{ menu } = useContext(OrderContext);
 
+  
 
     //Comportements
-
+   
 
     //Affichage (render)
   return (
    
-    <MenuStyled>            
-        {menu.map(({id, imageSource, title, price }) => {
-          return (
-            <Card 
-              key={id}
-              imageSource = {imageSource} 
-              title = {title} 
-              leftDescription = {formatPrice(price)}
-            />
-            //<Product {...produit} />  //autre facon de faire en destructurant un objet 
-          )
-        })}
+    <MenuStyled> 
+      {/* <button onClick={handleAddProduct}>Ajouter un produit</button> */}
+      {menu.map(({id, imageSource, title, price }) => {
+        return (
+          <Card 
+            key={id}
+            imageSource = {imageSource} 
+            title = {title} 
+            leftDescription = {formatPrice(price)}
+          />
+          //<Product {...produit} />  //autre facon de faire en destructurant un objet 
+        )
+      })}
     </MenuStyled>
   )
 }
