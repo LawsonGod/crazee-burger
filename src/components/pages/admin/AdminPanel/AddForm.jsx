@@ -4,9 +4,9 @@ import OrderContext from "../../../../context/OrderContext";
 
 const EMPTY_PRODUCT = {
   id: "",
-  title: "Nouveau Produit",
+  title: "",
   imageSource: "",
-  price: 15.0,
+  price:0,
 };
 
 export default function AddForm() {
@@ -31,9 +31,9 @@ export default function AddForm() {
       handleAdd(newProductToAdd);
 
     // reset form
-    // setTitle("");
-    // setImageSource("");
-    // setPrice(0);
+    setNewProduct.Title("");
+    setNewProduct.ImageSource("");
+    setNewProduct.Price(0);
   };
 
   const handleChange = (event) => {
