@@ -25,11 +25,10 @@ export default function AddForm() {
     event.preventDefault();
 
     const newProductToAdd = {
-      id: new Date().getTime(),
-        ...newProduct,
+      ...newProduct,
+      id: crypto.randomUUID(),
     };
-
-    handleAdd(newProductToAdd);
+      handleAdd(newProductToAdd);
 
     // reset form
     // setTitle("");
@@ -38,9 +37,8 @@ export default function AddForm() {
   };
 
   const handleChange = (event) => {
-    const newValue = event.target.value;
-    const name = event.target.name;
-    setNewProduct({ ...newProduct, [name]: newValue });
+    const { name, value } = event.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   // Affichage
