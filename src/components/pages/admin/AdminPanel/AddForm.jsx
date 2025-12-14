@@ -6,7 +6,7 @@ const EMPTY_PRODUCT = {
   id: "",
   title: "",
   imageSource: "",
-  price:0,
+  price: 0,
 };
 
 export default function AddForm() {
@@ -28,12 +28,10 @@ export default function AddForm() {
       ...newProduct,
       id: crypto.randomUUID(),
     };
-      handleAdd(newProductToAdd);
+    handleAdd(newProductToAdd);
 
     // reset form
-    setNewProduct.Title("");
-    setNewProduct.ImageSource("");
-    setNewProduct.Price(0);
+    setNewProduct(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
@@ -44,27 +42,33 @@ export default function AddForm() {
   // Affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">ImagePreview </div>
+      <div className="image-preview">
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <div>Aucune image</div>
+        )}
+      </div>
       <div className="input-fields">
         <input
           name="title"
           value={newProduct.title}
           type="text"
-          placeholder="Nom du produit"
+          placeholder="Nom du produit (ex: Super Burger)"
           onChange={handleChange}
         />
         <input
           name="imageSource"
           value={newProduct.imageSource}
           type="text"
-          placeholder="Image URL"
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           onChange={handleChange}
         />
         <input
           name="price"
           value={newProduct.price ? newProduct.price : ""}
           type="text"
-          placeholder="Prix du produit"
+          placeholder="Prix"
           onChange={handleChange}
         />
       </div>
@@ -83,8 +87,17 @@ const AddFormStyled = styled.form`
   width: 70%;
 
   .image-preview {
-    background: red;
     grid-area: 1 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   .input-fields {
