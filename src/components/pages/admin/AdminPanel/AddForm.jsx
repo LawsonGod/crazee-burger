@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -13,12 +14,7 @@ export default function AddForm() {
   // States
   const { handleAdd } = useContext(OrderContext);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-
-  // const newProduct = {
-  // id: new Date().getTime(),
-  // imageSource: "../../../../../public/images/burger-vegan.png",
-  // title: "Nouveau Produit",
-  // price: 2.50
+  const [isSubmitted, setisSubmitted] = useState(false);
 
   // Comportements
   const handleSubmit = (event) => {
@@ -32,11 +28,23 @@ export default function AddForm() {
 
     // reset form
     setNewProduct(EMPTY_PRODUCT);
+
+    displayMessageSuccess();
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const displayMessageSuccess = () => {
+    // afficher message de succes
+    setisSubmitted(true);
+
+    // cacher le message apres 2 secondes
+    setTimeout(() => {
+      setisSubmitted(false);
+    }, 2000);
   };
 
   // Affichage
@@ -72,7 +80,15 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <button className="submit-button">Submit-button</button>
+      <div className="submit">
+        <button className="submit-button">Submit-button</button>
+        {isSubmitted && (
+          <div className="submit-message">
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        )}
+      </div>
     </AddFormStyled>
   );
 }
@@ -107,10 +123,16 @@ const AddFormStyled = styled.form`
     display: grid;
   }
 
-  .submit-button {
+  .submit {
     background: green;
     grid-area: 4 / -2 / -1 / -1;
-
+    display: flex;
+    align-items: center;
+  }
+  .submit-button {
     width: 50%;
   }
+    .submit-message {
+        border: 1px solid black;
+    }
 `;
