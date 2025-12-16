@@ -10,7 +10,7 @@ const IMAGE_BY_DEFAULT = "../../../../../public/images/coming-soon.png";
 export default function Menu() {
    //States
   // const [menu, _setMenu] = useState(fakeMenu.MEDIUM);
-  const{ menu } = useContext(OrderContext);
+  const{ menu, isModeAdmin } = useContext(OrderContext);
 
   
 
@@ -29,6 +29,7 @@ export default function Menu() {
             imageSource = {imageSource ? imageSource : IMAGE_BY_DEFAULT} 
             title = {title} 
             leftDescription = {formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
           />
           //<Product {...produit} />  //autre facon de faire en destructurant un objet 
         )
