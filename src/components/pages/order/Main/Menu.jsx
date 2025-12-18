@@ -10,11 +10,12 @@ const IMAGE_BY_DEFAULT = "../../../../../public/images/coming-soon.png";
 export default function Menu() {
    //States
   // const [menu, _setMenu] = useState(fakeMenu.MEDIUM);
-  const{ menu, isModeAdmin } = useContext(OrderContext);
+  const{ menu, isModeAdmin, handleDelete } = useContext(OrderContext);
 
   
 
     //Comportements
+   
    
 
     //Affichage (render)
@@ -30,8 +31,9 @@ export default function Menu() {
             title = {title} 
             leftDescription = {formatPrice(price)}
             hasDeleteButton={isModeAdmin}
+            onDelete ={() => handleDelete(id)}
           />
-          //<Product {...produit} />  //autre facon de faire en destructurant un objet 
+          //<Product {...produit} />  //autre facon de faire en destructurant un objet
         )
       })}
     </MenuStyled>
