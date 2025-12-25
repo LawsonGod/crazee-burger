@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({value, onChange,iconInput, className, version = "normal", ...extraProps}) {
+export default function TextInput({value,onChange,iconInput,className,version = "normal",...extraProps}) {
     
     //states
 
@@ -50,10 +50,14 @@ const InputStyled = styled.div`
             color: ${theme.colors.greySemiDark};
         }
 
-        ${(props) =>{
+        /* ${(props) =>{
             if(props.version === "normal")return extraStyleNormal
             if(props.version === "minimalist") return extraStyleMinimalist
         }}
+
+        ${(props) => extraStyle[props.version]} */
+
+        ${(version) => extraStyle[version]} // optimal way
 `;
 const extraStyleNormal = css`
         background-color: ${theme.colors.white};
@@ -81,9 +85,11 @@ const extraStyleMinimalist = css`
             &:focus{
                 outline : none;
             }
-           
-            
-
         }
 
 `;
+
+const extraStyle = {
+    normal: extraStyleNormal,
+    minimalist: extraStyleMinimalist
+}
