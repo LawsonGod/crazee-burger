@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../theme';
 export default function Button({iconButton, label}) {
     //states
 
@@ -12,7 +13,7 @@ export default function Button({iconButton, label}) {
   return (
     <ButtonStyle>
         <span>{label}</span>
-       {iconButton&&iconButton}
+       <div className='icon-button'>{iconButton&&iconButton}</div>
     </ButtonStyle>
   )
 }
@@ -25,7 +26,7 @@ const ButtonStyle = styled.button`
     font-family: Arial, sans-serif;
     font-weight: 700;
     border: 1px solid #ff9F1B;
-    color: white;
+    color: ${theme.colors.white};
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,18 +37,24 @@ const ButtonStyle = styled.button`
     padding: 18px 24px;
 
     &:hover:not(:disabled){
-        background-color: white;
+        background-color: ${theme.colors.white};
         color: #ff9F1B;
         border: 1px solid #ff9F1B;
         transition: all 200ms ease-in-out;
     }
     &:active{
         background-color: #ff9F1B;
-        color: white;
+        color: ${theme.colors.white};
         border: 1px solid #ff9F1B;
     }
     &:disabled{
         opacity: 0.5;
         cursor: not-allowed;
     }
+    .icon-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
 `;
