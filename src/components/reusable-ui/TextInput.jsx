@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({value, onChange,iconInput, className,...extraProps}) {
+export default function TextInput({value, onChange,iconInput, className, version = "normal", ...extraProps}) {
     
     //states
 
@@ -12,7 +12,7 @@ export default function TextInput({value, onChange,iconInput, className,...extra
     // affichage(render)
 
   return (
-       <InputStyled className={className}>
+       <InputStyled className={className} version={version}>
         <div className="input-icon">{iconInput&&iconInput}</div>
             <input
                 value={value}
@@ -37,7 +37,7 @@ const InputStyled = styled.div`
         }
 
         input::placeholder{
-        background: ${theme.colors.white};
+        background: ${theme.colors.background_white};
         color: ${theme.colors.greyExtraLight};
         }
 
@@ -49,4 +49,41 @@ const InputStyled = styled.div`
             margin: 0 8px 0 10px;
             color: ${theme.colors.greySemiDark};
         }
+
+        ${(props) =>{
+            if(props.version === "normal")return extraStyleNormal
+            if(props.version === "minimalist") return extraStyleMinimalist
+        }}
+`;
+const extraStyleNormal = css`
+        background-color: ${theme.colors.white};
+        padding: 18px 28px;
+        color: ${theme.colors.greySemiDark};
+
+        input{
+            color: ${theme.colors.dark};
+
+            input::placeholder{
+                background: ${theme.colors.white}; 
+            }
+        }
+`;
+
+const extraStyleMinimalist = css`
+        background-color: ${theme.colors.background_white};
+        padding: 8px 16px;
+        color: ${theme.colors.greyBlue};
+
+        input{
+            background:${theme.colors.background_white};
+            color : ${theme.colors.dark};
+
+            &:focus{
+                outline : none;
+            }
+           
+            
+
+        }
+
 `;
