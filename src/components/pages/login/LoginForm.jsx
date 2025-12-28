@@ -63,7 +63,7 @@ const LoginFormStyle = styled.form`
     color: ${theme.colors.white};
   }
   hr {
-    border: 1px solid ${theme.colors.loginline};
+    border: 1px solid ${theme.colors.loginLine};
     margin-bottom: ${theme.gridUnit * 5}px;
   }
   h2 {

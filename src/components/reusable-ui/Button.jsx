@@ -5,6 +5,7 @@ export default function Button({
   label,
   className,
   version = "normal",
+  onClick,
 }) {
   //states
 
@@ -12,7 +13,7 @@ export default function Button({
 
   //affichage(render)
   return (
-    <ButtonStyle className={className} version={version}>
+    <ButtonStyle className={className} version={version} onClick={onClick}>
       <span>{label}</span>
       <div className="icon-button">{iconButton && iconButton}</div>
     </ButtonStyle>
