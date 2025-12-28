@@ -38,16 +38,13 @@ const InputStyled = styled.div`
 
         input::placeholder{
         background: ${theme.colors.background_white};
-        color: ${theme.colors.greyExtraLight};
+        color: ${theme.colors.greyMedium};
         }
 
         .input-icon{
             display: flex;
-            justify-content: center;
-            align-items: center;
             font-size: ${theme.fonts.size.SM};
-            margin: 0 8px 0 10px;
-            color: ${theme.colors.greySemiDark};
+            margin: 0 13px 0 8px;
         }
 
         /* ${(props) =>{
@@ -57,7 +54,7 @@ const InputStyled = styled.div`
 
         ${(props) => extraStyle[props.version]} */
 
-        ${(version) => extraStyle[version]} // optimal way
+        ${({version}) => extraStyle[version]} // optimal way
 `;
 const extraStyleNormal = css`
         background-color: ${theme.colors.white};
@@ -83,12 +80,12 @@ const extraStyleMinimalist = css`
             color : ${theme.colors.dark};
 
             &:focus{
-                outline : none;
+                outline : 0;
             }
         }
 
 `;
-
+//Dictionnary version -> style => un dictionnary to map version to style is a if - return alternative
 const extraStyle = {
     normal: extraStyleNormal,
     minimalist: extraStyleMinimalist

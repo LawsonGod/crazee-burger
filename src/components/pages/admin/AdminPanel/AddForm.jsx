@@ -7,6 +7,7 @@ import TextInput from "../../../reusable-ui/TextInput.jsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
+import Button from "../../../reusable-ui/Button.jsx";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -92,7 +93,11 @@ export default function AddForm() {
         />
       </div>
       <div className="submit">
-        <button className="submit-button">Submit-button</button>
+        <Button
+          className="submit-button"
+          label={"Ajouter un nouveau produit au menu"}
+          version="success"
+        />
         {isSubmitted && (
           <div className="submit-message">
             <FiCheck />
@@ -135,29 +140,31 @@ const AddFormStyled = styled.form`
       align-items: center;
       border: 1px solid ${theme.colors.greyLight};
       line-height: 1.5;
-      color: ${theme.colors.greySemiDark}; 
-      border-radius:${theme.borderRadius.round};
+      color: ${theme.colors.greySemiDark};
+      border-radius: ${theme.borderRadius.round};
     }
-
   }
 
   .input-fields {
-    grid-area: 1 / 2 / 4 / 2;
+    grid-area: 1 / 2 / -2 / 3;
 
     display: grid;
     grid-row-gap: 8px;
   }
 
   .submit {
-    background: green;
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
+    position: relative;
+    top: 3px;
   }
   .submit-button {
-    width: 50%;
+    /* width: 50%; */
+    height: 100%;
+
   }
-    .submit-message {
-        border: 1px solid black;
-    }
+  .submit-message {
+    border: 1px solid black;
+  }
 `;
