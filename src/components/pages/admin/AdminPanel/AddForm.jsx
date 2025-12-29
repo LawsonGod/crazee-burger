@@ -8,18 +8,12 @@ import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import Button from "../../../reusable-ui/Button.jsx";
-
-const EMPTY_PRODUCT = {
-  id: "",
-  title: "",
-  imageSource: "",
-  price: 0,
-};
+import { EMPTY_PRODUCT } from "./EmptyProduct.jsx";
 
 export default function AddForm() {
   // States
-  const { handleAdd } = useContext(OrderContext);
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  // const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [isSubmitted, setisSubmitted] = useState(false);
 
   // Comportements
