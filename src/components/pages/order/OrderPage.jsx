@@ -5,7 +5,7 @@ import { theme } from "../../../theme";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EMPTY_PRODUCT } from "../admin/adminPanel/EmptyProduct.jsx";
+import { EMPTY_PRODUCT } from "../admin/AdminPanel/EmptyProduct.jsx";
 
 export default function OrderPage() {
   //states
