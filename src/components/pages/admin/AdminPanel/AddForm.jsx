@@ -1,15 +1,14 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../context/OrderContext";
-import { FiCheck } from "react-icons/fi";
-import { theme } from "../../../../theme/index.jsx";
+import OrderContext from "../../../../context/OrderContext.jsx";
 import TextInput from "../../../reusable-ui/TextInput.jsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import Button from "../../../reusable-ui/Button.jsx";
 import { EMPTY_PRODUCT } from "./EmptyProduct.jsx";
-import ImagePreview from "./ImagePreview.jsx";
+import ImagePreview from "../adminPanel/ImagePreview.jsx";
+import SubmitMessage from "../adminPanel/SubmitMessage.jsx";
 
 export default function AddForm() {
   // States
@@ -51,7 +50,10 @@ export default function AddForm() {
   // Affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title} />
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <TextInput
           name="title"
@@ -87,12 +89,7 @@ export default function AddForm() {
           label={"Ajouter un nouveau produit au menu"}
           version="success"
         />
-        {isSubmitted && (
-          <div className="submit-message">
-            <FiCheck className="iconSubmitMessage"/>
-            <span className="message">Ajouté avec succès !</span>
-          </div>
-        )}
+        {isSubmitted && <SubmitMessage />}
       </div>
     </AddFormStyled>
   );
@@ -124,31 +121,8 @@ const AddFormStyled = styled.form`
     top: 3px;
 
     .submit-button {
-    /* width: 50%; */
-    height: 100%;
-  }
-    .submit-message {
-      /* border: 1px solid black; */
-      display: flex;
-      justify-content: center;      
-      align-items: center;
-      margin-left: 5px;
-
-      .iconSubmitMessage {
-        color: ${theme.colors.success};
-        margin-left: 10px;
-        width: 1em;
-        height: 1em;
-        border-radius: ${theme.borderRadius.circle};
-        vertical-align: middle;
-      }
-      .message {
-        margin-left: 5px;
-        font-size: ${theme.fonts.size.SM};
-        color: ${theme.colors.success};
-      }
+      /* width: 50%; */
+      height: 100%;
     }
   }
-  
-    
 `;
