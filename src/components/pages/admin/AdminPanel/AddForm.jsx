@@ -87,8 +87,8 @@ const AddFormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
-  margin: 30px;
-  height: 80%;
+  margin-left: 30px;
+  height: 100%;
   width: 70%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;

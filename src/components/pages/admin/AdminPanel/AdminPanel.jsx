@@ -21,10 +21,12 @@ export default function AdminPanel() {
 }
 
 const AdminPanelStyled = styled.div`
-  border-top: 1px solid ${theme.colors.greyLight};
+  border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
   background: ${theme.colors.white};
-  height: 251px;
-  border-bottom-left-radius:${theme.borderRadius.extraRound};
-  border-bottom-right-radius:${theme.borderRadius.extraRound};
+  height: 241px;
+  box-sizing: border-box;
+  padding: 30px 5px
+  /* border-bottom-left-radius:${theme.borderRadius.extraRound};
+  border-bottom-right-radius:${theme.borderRadius.extraRound}; */
 `;
