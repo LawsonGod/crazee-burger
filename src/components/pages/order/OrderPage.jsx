@@ -5,14 +5,14 @@ import { theme } from "../../../theme";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EMPTY_PRODUCT } from "../admin/AdminPanel/EmptyProduct.jsx";
+import { EMPTY_PRODUCT } from "../admin/adminPanel/EmptyProduct.jsx";
 
 export default function OrderPage() {
   //states
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, _setMenu] = useState(fakeMenu.SMALL);
+  const [menu, _setMenu] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   //comportements
