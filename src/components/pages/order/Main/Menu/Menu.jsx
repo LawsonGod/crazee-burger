@@ -6,7 +6,6 @@ import Card from "../../../../reusable-ui/Card";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-const IMAGE_BY_DEFAULT = "../../../../../public/images/coming-soon.png";
 
 export default function Menu() {
   //States
@@ -30,7 +29,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : "/images/coming-soon.png"}
             title={title}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
