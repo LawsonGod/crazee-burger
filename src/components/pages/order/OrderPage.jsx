@@ -4,27 +4,58 @@ import Main from "./Main/Main";
 import { theme } from "../../../theme";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { EMPTY_PRODUCT } from "../admin/adminPanel/EmptyProduct.jsx";
 
 export default function OrderPage() {
   //states
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isEditSelected, setIsEditSelected] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [menu, _setMenu] = useState(fakeMenu.LARGE);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   //comportements
+  const handleAdd = (newProduct) => {
+    // 1. copie du menu
+    const menuCopy = [...menu];
+
+    // 2. manip de la copie du tableau
+    const menuUpdated = [newProduct, ...menuCopy];
+
+    // 3. mise a jour du state
+    _setMenu(menuUpdated);
+  };
+
+  const handleDelete = (idProduct) => {
+    //1. Copy du sate
+    const menuCopy = [...menu];
+
+    //2. Modifier la copy du state(supprimer un produit)
+    const menuUpdated = menuCopy.filter((product) => product.id !== idProduct);
+    console.log("menuUpdated:", menuUpdated);
+
+    //3. Mettre a jour le state avec la copy modifiée
+    _setMenu(menuUpdated);
+  };
+
+  const resetMenu = () => {
+    _setMenu(fakeMenu.SMALL);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
-    isEditSelected,
-    setIsEditSelected,
-    isAddSelected,
-    setIsAddSelected,
     currentTabSelected,
-    setCurrentTabSelected
+    setCurrentTabSelected,
+    handleAdd,
+    handleDelete,
+    menu,
+    resetMenu,
+    newProduct,
+    setNewProduct,
   };
 
   //affichage(render)
